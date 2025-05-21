@@ -1,0 +1,30 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"school_stress\"}}]": "utter_school_stress",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"school_stress\"}}, {\"prev_action\": {\"action_name\": \"utter_school_stress\"}, \"user\": {\"intent\": \"school_stress\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"work_stress\"}}]": "utter_work_stress",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"work_stress\"}}, {\"prev_action\": {\"action_name\": \"utter_work_stress\"}, \"user\": {\"intent\": \"work_stress\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_chat\"}}]": "utter_ask_feeling",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_chat\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_feeling\"}, \"user\": {\"intent\": \"start_chat\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stranger_event\"}}]": "utter_stranger_event",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stranger_event\"}}, {\"prev_action\": {\"action_name\": \"utter_stranger_event\"}, \"user\": {\"intent\": \"stranger_event\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stranger_event\"}}, {\"prev_action\": {\"action_name\": \"utter_stranger_event\"}, \"user\": {\"intent\": \"stranger_event\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"work_stress\"}}, {\"prev_action\": {\"action_name\": \"utter_work_stress\"}, \"user\": {\"intent\": \"work_stress\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_chat\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"school_stress\"}}, {\"prev_action\": {\"action_name\": \"utter_school_stress\"}, \"user\": {\"intent\": \"school_stress\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"start_chat\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_feeling\"}, \"user\": {\"intent\": \"start_chat\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"school_stress\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"stranger_event\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"work_stress\"}}]"
+    ]
+  }
+}

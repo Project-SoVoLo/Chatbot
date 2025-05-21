@@ -1,0 +1,153 @@
+version: "3.1"
+
+stories:
+
+# ─────────────────────────────
+# 대화 시작
+- story: 대화 시작
+  steps:
+    - intent: start_chat
+    - action: utter_start_chat
+
+# ─────────────────────────────
+# 대화 종료 (end_chat)
+- story: 대화 종료 - 긍정
+  steps:
+    - intent: end_chat
+    - slot_was_set:
+        - class: positive
+    - action: utter_end_chat_positive
+
+- story: 대화 종료 - 중립
+  steps:
+    - intent: end_chat
+    - slot_was_set:
+        - class: neutral
+    - action: utter_end_chat_neutral
+
+- story: 대화 종료 - 부정
+  steps:
+    - intent: end_chat
+    - slot_was_set:
+        - class: negative
+    - action: utter_end_chat_negative
+
+# ─────────────────────────────
+# 일상 (daily)
+- story: 일상 - 긍정
+  steps:
+    - intent: daily
+    - slot_was_set:
+        - class: positive
+    - action: utter_daily_positive
+
+- story: 일상 - 중립
+  steps:
+    - intent: daily
+    - slot_was_set:
+        - class: neutral
+    - action: utter_daily_neutral
+
+- story: 일상 - 부정
+  steps:
+    - intent: daily
+    - slot_was_set:
+        - class: negative
+    - action: utter_recommend_counseling
+    - action: utter_daily_negative
+
+# ─────────────────────────────
+# 회사 (work)
+- story: 회사 - 긍정
+  steps:
+    - intent: work
+    - slot_was_set:
+        - class: positive
+    - action: utter_work_positive
+
+- story: 회사 - 중립
+  steps:
+    - intent: work
+    - slot_was_set:
+        - class: neutral
+    - action: utter_work_neutral
+
+- story: 회사 - 부정
+  steps:
+    - intent: work
+    - slot_was_set:
+        - class: negative
+    - action: utter_recommend_counseling
+    - action: utter_work_negative
+
+# ─────────────────────────────
+# 학교 (school)
+- story: 학교 - 긍정
+  steps:
+    - intent: school
+    - slot_was_set:
+        - class: positive
+    - action: utter_school_positive
+
+- story: 학교 - 중립
+  steps:
+    - intent: school
+    - slot_was_set:
+        - class: neutral
+    - action: utter_school_neutral
+
+- story: 학교 - 부정
+  steps:
+    - intent: school
+    - slot_was_set:
+        - class: negative
+    - action: utter_recommend_counseling
+    - action: utter_school_negative
+
+# ─────────────────────────────
+# 가족 (family)
+- story: 가족 - 긍정
+  steps:
+    - intent: family
+    - slot_was_set:
+        - class: positive
+    - action: utter_family_positive
+
+- story: 가족 - 중립
+  steps:
+    - intent: family
+    - slot_was_set:
+        - class: neutral
+    - action: utter_family_neutral
+
+- story: 가족 - 부정
+  steps:
+    - intent: family
+    - slot_was_set:
+        - class: negative
+    - action: utter_recommend_counseling
+    - action: utter_family_negative
+
+# ─────────────────────────────
+# 친구 (friend)
+- story: 친구 - 긍정
+  steps:
+    - intent: friend
+    - slot_was_set:
+        - class: positive
+    - action: utter_friend_positive
+
+- story: 친구 - 중립
+  steps:
+    - intent: friend
+    - slot_was_set:
+        - class: neutral
+    - action: utter_friend_neutral
+
+- story: 친구 - 부정
+  steps:
+    - intent: friend
+    - slot_was_set:
+        - class: negative
+    - action: utter_recommend_counseling
+    - action: utter_friend_negative
