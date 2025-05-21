@@ -14,7 +14,11 @@ entities:
 
 slots:
   class:
-    type: text
+    type: categorical
+    values:
+      - positive
+      - neutral
+      - negative
     influence_conversation: true
     mappings:
       - type: custom
