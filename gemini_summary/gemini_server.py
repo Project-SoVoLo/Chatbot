@@ -16,14 +16,21 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 def summarize():
     data = request.json
     chat_log = data.get("chatLog", "")
-    prompt = f"""아래는 사용자가 챗봇과 나눈 상담 내용이야. 
-                이 내용을 기반으로 다음 정보를 요약해서 정리해줘:
-
-                - 대화 요약 (한두 줄)
-                - 챗봇의 피드백 요지 
+    prompt = f"""아래는 사용자가 챗봇과 나눈 상담 내용이야.
+                다음 형식으로 요약해줘 (형식 꼭 맞춰서 응답해):
+                
+                형식: 날짜 | 대화 요약 | 챗봇 피드백 | 감정상태
+                
+                조건:
+                - 날짜는 생략해도 돼
+                - 감정상태는 '긍정' / '중립' / '부정' 중 하나로 꼭 작성해
+                - '|' 로 구분된 정확히 4개의 항목으로 반환해
+                
                 내용:
-                \n\n{chat_log}\n\n 
-                요약:"""
+                {chat_log}
+                
+                요약:
+                """
     try:
         response = model.generate_content(prompt)
         return jsonify({"summary": response.text})
