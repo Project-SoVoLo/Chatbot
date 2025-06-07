@@ -2,7 +2,8 @@ version: "3.1"
 
 intents:
   - start_chat
-  - end_chat
+  - end_chat        # 사용자가 대화 종료를 요청
+  - continue_chat   # 사용자가 대화 연장을 요청
   - daily
   - work
   - school
@@ -25,11 +26,13 @@ slots:
 
 responses:
 
-  ## 대화 시작에 대한 답장
+  ## 대화 시작 ------------------------------
   utter_start_chat:
     - text: 오늘은 무슨 일이 있었나요? 오늘의 기분은 어때요?
+    - text: 안녕하세요! 오늘 하루는 어땠나요?
+    - text: 안녕~ 오늘 있었던 일을 들려줄 수 있나요?
 
-  ## 대화 종료 시 클래스 별 답장
+  ## 대화 종료 시 클래스 별 답장 ------------------------------
   utter_end_chat_positive:
     - text: 오늘도 기분이 좋아서 다행이에요. 내일도 좋은 하루 보내요! (end positive)
   utter_end_chat_neutral:
@@ -37,7 +40,7 @@ responses:
   utter_end_chat_negative:
     - text: 오늘을 버틴 당신이 대견해요. 너무 힘들 땐 전문가와 상담해보는 것도 좋아요! (end negative)
 
-  ## 일상 (daily)
+  ## 일상 (daily)------------------------------
   utter_daily_positive:
     - text: 요즘은 그래도 조금 나아진 것 같아요 😊 작은 일이라도 해냈다면 정말 잘한 거예요! (+)
 
@@ -47,7 +50,7 @@ responses:
   utter_daily_negative:
     - text: 하루종일 누워 있고 싶은 마음… 많이 힘든 거죠. 잠깐 산책이라도 해볼 수 있을까요? (-)
 
-  ## 회사 (work)
+  ## 회사 (work) ------------------------------
   utter_work_positive:
     - text: 직장에서 조금 여유가 생겼나요? 그런 변화는 당신을 위한 좋은 신호예요! (+)
 
@@ -57,7 +60,7 @@ responses:
   utter_work_negative:
     - text: 회사 일로 많이 힘들었겠어요. 부장 대머리 되라 한마디 하고, 오늘은 푹 쉬어요! (-)
 
-  ## 학교 (school)
+  ## 학교 (school) ------------------------------
   utter_school_positive:
     - text: 학업 속에서도 잘 해내고 있네요! 대단해요 😊 (+)
 
@@ -67,7 +70,7 @@ responses:
   utter_school_negative:
     - text: 학교에서 받은 스트레스가 컸겠어요… 그 마음 충분히 이해해요. (-)
 
-  ## 가족 (family)
+  ## 가족 (family) ------------------------------
   utter_family_positive:
     - text: 가족과 조금이라도 따뜻한 시간이 있었다면 그건 정말 소중한 일이에요 💛 (+)
 
@@ -77,7 +80,7 @@ responses:
   utter_family_negative:
     - text: 가족 문제로 마음이 지쳐 있겠네요. 당신 탓이 아니에요, 절대요. (-)
 
-  ## 친구 (friend)
+  ## 친구 (friend) ------------------------------
   utter_friend_positive:
     - text: 친구와의 관계에 웃음이 생겼다면 그건 정말 반가운 일이에요 😊 (+)
 
@@ -87,9 +90,19 @@ responses:
   utter_friend_negative:
     - text: 외롭고 허전한 마음… 너무나 이해돼요. 말해줘서 고마워요. (-)
 
-  ## 전문가 상담 권유
+  ## 전문가 상담 권유 ------------------------------
   utter_recommend_counseling:
     - text: 당신의 상태가 많이 힘들어 보여요. 혼자 끌어안지 말고 전문가에게 상담받아보는 건 어때요?
+    - text: 가끔은 전문가의 상담을 받아보는 것도 좋을 거 같아요.
+
+  ## 대화 연장 여부 묻기 ------------------------------
+  utter_ask_continue:
+    - text: 혹시 더 얘기하고 싶은 게 있나요?
+    - text: 혹시 더 털어놓고 싶은 이야기가 있나요?
+
+  utter_continue_prompt:
+    - text: 어떤 일이 더 있었나요?
+    - text: 좋아요. 우리 더 얘기해봐요. 또 무슨 일이 있었나요?
 
 session_config:
   session_expiration_time: 60

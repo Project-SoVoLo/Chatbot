@@ -31,15 +31,24 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_end_chat_negative
+    - action: utter_recommend_counseling
 
 # ─────────────────────────────
-# 일상 (daily)
+# 대화 연장
+- story: 대화 연장
+  steps:
+    - intent: continue_chat
+    - action: utter_continue_prompt
+
+# ─────────────────────────────
+# 일상 (daily) 클래에 따른 반응
 - story: 일상 - 긍정
   steps:
     - intent: daily
     - slot_was_set:
         - class: positive
-    - action: utter_daily_positive
+    - action: utter_daily_positive  # 피드백 제공하고
+    - action : utter_ask_continue   # 대화 연장 묻기
 
 - story: 일상 - 중립
   steps:
@@ -47,14 +56,15 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_daily_neutral
+    - action : utter_ask_continue
 
 - story: 일상 - 부정
   steps:
     - intent: daily
     - slot_was_set:
         - class: negative
-    - action: utter_recommend_counseling
     - action: utter_daily_negative
+    - action : utter_ask_continue
 
 # ─────────────────────────────
 # 회사 (work)
@@ -64,6 +74,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_work_positive
+    - action : utter_ask_continue
 
 - story: 회사 - 중립
   steps:
@@ -71,14 +82,15 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_work_neutral
+    - action : utter_ask_continue
 
 - story: 회사 - 부정
   steps:
     - intent: work
     - slot_was_set:
         - class: negative
-    - action: utter_recommend_counseling
     - action: utter_work_negative
+    - action : utter_ask_continue
 
 # ─────────────────────────────
 # 학교 (school)
@@ -88,6 +100,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_school_positive
+    - action : utter_ask_continue
 
 - story: 학교 - 중립
   steps:
@@ -95,14 +108,15 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_school_neutral
+    - action : utter_ask_continue
 
 - story: 학교 - 부정
   steps:
     - intent: school
     - slot_was_set:
         - class: negative
-    - action: utter_recommend_counseling
     - action: utter_school_negative
+    - action : utter_ask_continue
 
 # ─────────────────────────────
 # 가족 (family)
@@ -112,6 +126,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_family_positive
+    - action : utter_ask_continue
 
 - story: 가족 - 중립
   steps:
@@ -119,14 +134,15 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_family_neutral
+    - action : utter_ask_continue
 
 - story: 가족 - 부정
   steps:
     - intent: family
     - slot_was_set:
         - class: negative
-    - action: utter_recommend_counseling
     - action: utter_family_negative
+    - action : utter_ask_continue
 
 # ─────────────────────────────
 # 친구 (friend)
@@ -136,6 +152,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_friend_positive
+    - action : utter_ask_continue
 
 - story: 친구 - 중립
   steps:
@@ -143,11 +160,12 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_friend_neutral
+    - action : utter_ask_continue
 
 - story: 친구 - 부정
   steps:
     - intent: friend
     - slot_was_set:
         - class: negative
-    - action: utter_recommend_counseling
     - action: utter_friend_negative
+    - action : utter_ask_continue

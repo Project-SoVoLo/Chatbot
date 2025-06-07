@@ -1,0 +1,73 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "back": 0,
+        "continue_chat": 1,
+        "daily": 2,
+        "end_chat": 3,
+        "family": 4,
+        "friend": 5,
+        "nlu_fallback": 6,
+        "out_of_scope": 7,
+        "restart": 8,
+        "school": 9,
+        "session_start": 10,
+        "start_chat": 11,
+        "work": 12
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_ask_continue": 13,
+        "utter_continue_prompt": 14,
+        "utter_daily_negative": 15,
+        "utter_daily_neutral": 16,
+        "utter_daily_positive": 17,
+        "utter_end_chat_negative": 18,
+        "utter_end_chat_neutral": 19,
+        "utter_end_chat_positive": 20,
+        "utter_family_negative": 21,
+        "utter_family_neutral": 22,
+        "utter_family_positive": 23,
+        "utter_friend_negative": 24,
+        "utter_friend_neutral": 25,
+        "utter_friend_positive": 26,
+        "utter_recommend_counseling": 27,
+        "utter_school_negative": 28,
+        "utter_school_neutral": 29,
+        "utter_school_positive": 30,
+        "utter_start_chat": 31,
+        "utter_work_negative": 32,
+        "utter_work_neutral": 33,
+        "utter_work_positive": 34
+      },
+      "entities": {
+        "class": 0
+      },
+      "slots": {
+        "class_0": 0,
+        "class_1": 1,
+        "class_2": 2,
+        "class_3": 3
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}
