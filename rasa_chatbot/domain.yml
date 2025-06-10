@@ -10,6 +10,13 @@ intents:
   - family
   - friend
 
+actions:
+  - utter_end_chat_positive
+  - utter_end_chat_neutral
+  - utter_end_chat_negative
+  - utter_recommend_counseling
+  - utter_ask_continue
+
 entities:
   - class
 
