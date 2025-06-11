@@ -16,6 +16,14 @@ nlu:
     - 대화해줘서 고마워
     - 마무리하자
 
+- intent: continue_chat
+  examples : |
+    - 응
+    - 그래
+    - 얘기 더 하자
+    - 더 얘기 나누자
+    - 더 말할거 있어
+
 # 직장에서의 얘기
 - intent: work
   examples: |
