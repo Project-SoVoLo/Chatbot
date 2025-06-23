@@ -27,12 +27,18 @@ cd Backend
 </br>
 
 2. 프론트엔드 실행
+> 리액트 프로젝트 실행
 ```
 cd Frontend/client
 npm install
 npm start
 ```
 기본 포트: http://localhost:3000
+> whisper 기능 실행
+```
+cd Frontennd/flask-server
+python3 server.py
+```
 
 3. 챗봇 서버 실행
 > 챗봇 대화 요약
