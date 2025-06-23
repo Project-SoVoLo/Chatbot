@@ -3,7 +3,7 @@
 
 ## 🎬 최종 발표 자료
 
-- DRD 발표 자료 : [소보로_DRD_발표[(https://docs.google.com/presentation/d/1iOLvn2A73YcETnjXgF7QtyAfT1PkmBdRr6MBlQ9AUXI/edit?usp=sharing)
+- DRD 발표 자료 : [소보로_DRD_발표](https://docs.google.com/presentation/d/1iOLvn2A73YcETnjXgF7QtyAfT1PkmBdRr6MBlQ9AUXI/edit?usp=sharing)
 - DSD 발표 자료 : [소보로_DSD_발표](https://docs.google.com/presentation/d/1PfAYHKC4Dy8-8iIWMZnlb3o6rLNwp85HaF3Br5A-St4/edit?usp=sharing)
 - 1학기 프로토타입 발표 자료: [소보로_프로토타입_발표](https://www.miricanvas.com/v/14sbzxd)
 
