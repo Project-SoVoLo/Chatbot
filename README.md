@@ -57,4 +57,4 @@ python3 app.py
 
 ## ❓ 문의
 
-[✉️ 메일로 문의](03dayun03@yu.ac.kr)
+[✉️ 메일로 문의](mailto:03dayun03@yu.ac.kr)
