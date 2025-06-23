@@ -3,8 +3,9 @@
 
 ## 🎬 최종 발표 자료
 
-발표 자료: 프로그래밍언어_최종발표
-📁 Chatbot 레포지토리 폴더 구조 안내
+발표 자료: [소보로_프로토타입_발표](https://www.miricanvas.com/v/14sbzxd)
+
+## 📁 Chatbot 레포지토리 폴더 구조 안내
 
 - [gemini_summary](./gemini_summary) 챗봇 전체 대화 내용 요약 관련 코드
 - [phq9-flask-api](./phq9-flask-api) 사용자 텍스트 phq-9 점수 추출 관련 코드
