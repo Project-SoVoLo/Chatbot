@@ -6,13 +6,13 @@ WORKDIR /app
 
 # 3 ) 의존성 설치
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --default-timeout=120 --no-cache-dir -r requirements.txt
 
 # 4 ) 나머지 소스 복사
 COPY . .
 
 # 5 ) 개발 서버 포트 5050
-EXPOSE 5001
+EXPOSE 5050
 
-# 6 ) gemini 서버 실행
-CMD ["python", "gemini_server.py"]
+# 6 ) phq-9 모델 서버 실행
+CMD ["python", "app.py"]
