@@ -19,4 +19,4 @@ USER 1001
 EXPOSE 5005
 
 # latest 링크가 있으면 그걸로 기동 (없어도 에러 안 남)
-CMD ["rasa","run","--enable-api","--cors","*","--port","5005","--model","/app/models/latest.tar.gz"]
+CMD ["run","--enable-api","--cors","*","--port","5005","--model","/app/models/latest.tar.gz"]
