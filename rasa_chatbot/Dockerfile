@@ -11,7 +11,7 @@ COPY --chown=1001:1001 . /app
 # 디렉터리 보장 + 소유권 재확인 + latest 링크 생성(모델이 있으면)
 RUN mkdir -p /app/models /app/.config \
  && chown -R 1001:1001 /app \
- && sh -lc 'ls /app/models/*.tar.gz >/dev/null 2>&1 && ln -sf "$(ls -t /app/models/*.tar.gz | head -1)" /app/models/latest.tar.gz || true'
+ && sh -lc 'ls /app/models/*.tar.gz >/dev/null 2>&1 && cp "$(ls -t /app/models/*.tar.gz | head -1)" /app/models/latest.tar.gz || true'
 
 # 기본 유저로 복귀
 USER 1001
