@@ -41,14 +41,14 @@ stories:
     - action: utter_continue_prompt
 
 # ─────────────────────────────
-# 일상 (daily) 클래에 따른 반응
+# 일상 (daily) 클래스에 따른 반응
 - story: 일상 - 긍정
   steps:
     - intent: daily
     - slot_was_set:
         - class: positive
     - action: utter_daily_positive  # 피드백 제공하고
-    - action : utter_ask_continue   # 대화 연장 묻기
+    - action: utter_ask_continue    # 대화 연장 묻기
 
 - story: 일상 - 중립
   steps:
@@ -56,7 +56,7 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_daily_neutral
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 일상 - 부정
   steps:
@@ -64,7 +64,7 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_daily_negative
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 # ─────────────────────────────
 # 회사 (work)
@@ -74,7 +74,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_work_positive
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 회사 - 중립
   steps:
@@ -82,7 +82,7 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_work_neutral
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 회사 - 부정
   steps:
@@ -90,7 +90,7 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_work_negative
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 # ─────────────────────────────
 # 학교 (school)
@@ -100,7 +100,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_school_positive
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 학교 - 중립
   steps:
@@ -108,7 +108,7 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_school_neutral
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 학교 - 부정
   steps:
@@ -116,7 +116,7 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_school_negative
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 # ─────────────────────────────
 # 가족 (family)
@@ -126,7 +126,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_family_positive
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 가족 - 중립
   steps:
@@ -134,7 +134,7 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_family_neutral
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 가족 - 부정
   steps:
@@ -142,7 +142,7 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_family_negative
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 # ─────────────────────────────
 # 친구 (friend)
@@ -152,7 +152,7 @@ stories:
     - slot_was_set:
         - class: positive
     - action: utter_friend_positive
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 친구 - 중립
   steps:
@@ -160,7 +160,7 @@ stories:
     - slot_was_set:
         - class: neutral
     - action: utter_friend_neutral
-    - action : utter_ask_continue
+    - action: utter_ask_continue
 
 - story: 친구 - 부정
   steps:
@@ -168,4 +168,109 @@ stories:
     - slot_was_set:
         - class: negative
     - action: utter_friend_negative
-    - action : utter_ask_continue
+    - action: utter_ask_continue
+
+
+# =====================================================================
+# 👇 여기부터 멀티턴 경로 보강 (기존 액션 그대로 활용)
+# =====================================================================
+
+# 1) 시작 → 일상(부정) → 계속 대화 → 회사(부정) → 다시 계속/종료
+- story: 대화 흐름 - 일상에서 회사로 이어짐
+  steps:
+    - intent: start_chat
+    - action: utter_start_chat
+    - intent: daily
+    - slot_was_set:
+        - class: negative
+    - action: utter_daily_negative
+    - action: utter_ask_continue
+    - intent: continue_chat
+    - action: utter_continue_prompt
+    - intent: work
+    - slot_was_set:
+        - class: negative
+    - action: utter_work_negative
+    - action: utter_ask_continue
+    - intent: end_chat
+    - slot_was_set:
+        - class: neutral
+    - action: utter_end_chat_neutral
+
+# 2) 시작 → 학교(부정) → 계속 대화 → 친구(부정) → 부정 종료 + 상담 권유
+- story: 대화 흐름 - 학교에서 친구 고민으로
+  steps:
+    - intent: start_chat
+    - action: utter_start_chat
+    - intent: school
+    - slot_was_set:
+        - class: negative
+    - action: utter_school_negative
+    - action: utter_ask_continue
+    - intent: continue_chat
+    - action: utter_continue_prompt
+    - intent: friend
+    - slot_was_set:
+        - class: negative
+    - action: utter_friend_negative
+    - action: utter_ask_continue
+    - intent: end_chat
+    - slot_was_set:
+        - class: negative
+    - action: utter_end_chat_negative
+    - action: utter_recommend_counseling
+
+# 3) 시작 없이 바로 일상 → 긍정 → 계속 대화 → 가족(중립) → 종료
+- story: 대화 흐름 - 인사 없이 일상으로 시작
+  steps:
+    - intent: daily
+    - slot_was_set:
+        - class: positive
+    - action: utter_daily_positive
+    - action: utter_ask_continue
+    - intent: continue_chat
+    - action: utter_continue_prompt
+    - intent: family
+    - slot_was_set:
+        - class: neutral
+    - action: utter_family_neutral
+    - action: utter_ask_continue
+    - intent: end_chat
+    - slot_was_set:
+        - class: positive
+    - action: utter_end_chat_positive
+
+# 4) 시작 → 회사(중립) → "계속 안 할래" 바로 종료
+- story: 대화 흐름 - 회사 이야기 후 바로 종료
+  steps:
+    - intent: start_chat
+    - action: utter_start_chat
+    - intent: work
+    - slot_was_set:
+        - class: neutral
+    - action: utter_work_neutral
+    - action: utter_ask_continue
+    - intent: end_chat
+    - slot_was_set:
+        - class: neutral
+    - action: utter_end_chat_neutral
+
+# 5) 시작 → 친구(긍정) → 계속 대화 → 일상(중립) → 계속 대화만 반복
+- story: 대화 흐름 - 친구 고민 후 일상 이야기로
+  steps:
+    - intent: start_chat
+    - action: utter_start_chat
+    - intent: friend
+    - slot_was_set:
+        - class: positive
+    - action: utter_friend_positive
+    - action: utter_ask_continue
+    - intent: continue_chat
+    - action: utter_continue_prompt
+    - intent: daily
+    - slot_was_set:
+        - class: neutral
+    - action: utter_daily_neutral
+    - action: utter_ask_continue
+    - intent: continue_chat
+    - action: utter_continue_prompt
